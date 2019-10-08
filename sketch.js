@@ -1,4 +1,5 @@
 var myTrueBall;
+// var allMyBalls
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
