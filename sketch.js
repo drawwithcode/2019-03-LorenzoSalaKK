@@ -7,7 +7,7 @@ function setup() {
 }
 
 function draw() {
-  var rectW = 200 - (frameCount/50);
+  var rectW = 200 - (frameCount/15);
 
   background('black');
 
