@@ -30,6 +30,11 @@ function draw() {
     myTrueBall.increaseY = -myTrueBall.increaseY;
   };
 
+  if (myTrueBall.y > windowHeight) {
+    background('white');
+  }
+
+  noStroke();
   rect(mouseX - (rectW/2), windowHeight * 6 / 7, rectW, 10);
 
 }
