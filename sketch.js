@@ -9,6 +9,10 @@ function setup() {
 function draw() {
   var rectW = 200 - (frameCount/15);
 
+  if (rectW<50) {
+    rectW = 50;
+  };
+
   background('black');
 
   push();
