@@ -1,17 +1,16 @@
 var myTrueBall;
-// var allMyBalls
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  myTrueBall = new Ball(random(0.1,windowWidth-0.1), 0, 20);
+  myTrueBall = new Ball(random(0.1, windowWidth - 0.1), 0, 20);
 }
 
 function draw() {
-  var rectW = 200 - (frameCount/15);
+  var rectW = 200 - (frameCount / 15); // bar size is reducing by time passing
 
-  if (rectW<50) {
+  if (rectW < 50) {
     rectW = 50;
-  };
+  }; //bar lower size
 
   background('black');
 
@@ -20,10 +19,12 @@ function draw() {
   myTrueBall.display();
   pop();
 
-  if ((myTrueBall.x < mouseX + (rectW/2) && myTrueBall.x > mouseX - (rectW/2)) && (myTrueBall.y >= windowHeight * 6 / 7 && myTrueBall.y <= windowHeight * 6.05 / 7)) {
+  // bar ball interaction
+  if ((myTrueBall.x < mouseX + (rectW / 2) && myTrueBall.x > mouseX - (rectW / 2)) && (myTrueBall.y >= windowHeight * 6 / 7 && myTrueBall.y <= windowHeight * 6.05 / 7)) {
     myTrueBall.increaseY = -myTrueBall.increaseY;
   };
 
+  // ball bounds interatcions
   if (myTrueBall.x < 1 || myTrueBall.x > windowWidth) {
     myTrueBall.increaseX = -myTrueBall.increaseX;
   } else if (myTrueBall.y < 1) {
@@ -35,7 +36,7 @@ function draw() {
   }
 
   noStroke();
-  rect(mouseX - (rectW/2), windowHeight * 6 / 7, rectW, 10);
+  rect(mouseX - (rectW / 2), windowHeight * 6 / 7, rectW, 10);
 
 }
 
@@ -59,6 +60,5 @@ function Ball(_x, _y, _d) {
     noStroke()
     ellipse(this.x, this.y, this.size);
   }
-
 
 }
